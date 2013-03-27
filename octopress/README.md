@@ -1,7 +1,7 @@
 This directory contains the source files for the GitHub Pages of my Codecademy stuff.
 
 ## Made With Octopress
-All the files from [source](../source) are processed by Octopress and the result is then pushed to the `gh-pages` branch to publish the actual pages.
+All the files from [source](octopress/source) are processed by Octopress and the result is then pushed to the `gh-pages` branch to publish the actual pages.
 
 [Octopress](http://octopress.org/) is a feature-rich [Jekyll](https://github.com/mojombo/jekyll) template.
 
