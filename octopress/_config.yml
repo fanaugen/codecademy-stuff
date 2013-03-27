@@ -15,7 +15,7 @@ description: Happy coding!
 date_format: "%b %d, %Y"
 
 # RSS / Email (optional) subscription links
-subscribe_rss: /atom.xml
+subscribe_rss: /codecademy-stuff/atom.xml
 subscribe_email:
 email:   # RSS feeds can list your email address if you like
 

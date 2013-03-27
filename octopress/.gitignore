@@ -1,0 +1,8 @@
+# ignore public and _deploy (Octopress output directories) on master
+public/
+_deploy/
+
+# ignore Mac OS X files
+.DS_Store
+
+
