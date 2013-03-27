@@ -1,9 +1,11 @@
-This directory contains the source files for the GitHub Pages of my Codecademy stuff.
+This directory contains the Octopress code and the source files for the [GitHub Pages][ghp] of my Codecademy stuff.
+
+[ghp]: http://fanaugen.github.com/codecademy-stuff/
 
 ## Made With Octopress
-All the files from [source](../source) are processed by Octopress and the result is then pushed to the `gh-pages` branch to publish the actual pages.
+Octopress uses Jekyll to generate static pages and assets from source files in the [source](source) directory. The result is then pushed to the `gh-pages` [branch](../../gh-pages) to publish the actual pages.
 
-[Octopress](http://octopress.org/) is a feature-rich [Jekyll](https://github.com/mojombo/jekyll) template.
+[Octopress](http://octopress.org/) is a feature-rich and easy-to-use blogging framework built upon [Jekyll](https://github.com/mojombo/jekyll).
 
 - Theme used: [Classic Light](https://github.com/octopress-themes/classic-light) by Octopress Themes(http://octopressthemes.com/)
 - Here’s [how to deploy](http://octopress.org/docs/deploying/github/) an Octopress Blog to GitHub Pages

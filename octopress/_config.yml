@@ -30,7 +30,7 @@ permalink: /blog/:year/:month/:title/
 source: source
 destination: public
 plugins: plugins      # they are what makes it impossible to use GitHub’s own Jekyll engine
-code_dir: ../../code  # relative path from "source" directory
+code_dir: code  # relative path from "source" directory
 category_dir: blog/categories
 markdown: rdiscount   # GitHub uses rdiscount as well
 pygments: false # default python pygments have been replaced by pygments.rb
@@ -44,7 +44,7 @@ titlecase: true       # Converts page and post titles to titlecase
 
 # list each of the sidebar modules you want to include, in the order you want them to appear.
 # To add custom asides, create files in _includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
-default_asides: [asides/recent_posts.html, asides/github.html]
+default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.html]
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
