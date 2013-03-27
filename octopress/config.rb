@@ -4,10 +4,10 @@ require 'sass-globbing'
 project_type = :stand_alone
 
 # Publishing paths
-http_path = "/codecademy-stuff"
-http_images_path = "/codecademy-stuff/images"
-http_fonts_path = "/codecademy-stuff/fonts"
-css_dir = "public/codecademy-stuff/stylesheets"
+http_path = "/"
+http_images_path = "/images"
+http_fonts_path = "/fonts"
+css_dir = "public/stylesheets"
 
 # Local development paths
 sass_dir = "sass"

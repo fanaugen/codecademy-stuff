@@ -15,7 +15,7 @@ description: Happy coding!
 date_format: "%b %d, %Y"
 
 # RSS / Email (optional) subscription links
-subscribe_rss: /codecademy-stuff/atom.xml
+subscribe_rss: /atom.xml
 subscribe_email:
 email:   # RSS feeds can list your email address if you like
 
@@ -27,8 +27,8 @@ email:   # RSS feeds can list your email address if you like
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /codecademy-stuff
 permalink: /blog/:year/:month/:title/
-source: source         
-destination: _deploy
+source: source
+destination: public
 plugins: plugins      # they are what makes it impossible to use GitHub’s own Jekyll engine
 code_dir: ../../code  # relative path from "source" directory
 category_dir: blog/categories
