@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Codecademy Stuff]]></title>
+  <link href="http://fanaugen.github.com/codecademy-stuff/atom.xml" rel="self"/>
+  <link href="http://fanaugen.github.com/codecademy-stuff/"/>
+  <updated>2013-03-27T17:04:08+01:00</updated>
+  <id>http://fanaugen.github.com/codecademy-stuff/</id>
+  <author>
+    <name><![CDATA[Alex Jahraus]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>
