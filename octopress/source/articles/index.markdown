@@ -1,9 +1,8 @@
 ---
 layout: page
 title: "articles"
-date: 2013-03-27 19:33
-comments: true
-sharing: true
+comments: false
+sharing: false
 footer: true
 ---
 
