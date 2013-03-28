@@ -1,5 +1,9 @@
 ---
-layout: default
+layout: page
+title: "FAQ"
+comments: true
+sharing: true
+footer: true
 ---
 ## General
 - [Formatting Code in Forums](http://www.codecademy.com/forum_questions/509b9e7c3feca80200001d40#response-509bc71d6d816a0200003251)

@@ -1,5 +1,9 @@
 ---
-layout: default
+layout: page
+title: "About"
+comments: false
+sharing: false
+footer: true
 ---
 
 ## About this blog
