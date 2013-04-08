@@ -43,7 +43,7 @@ function do_the_magic(){
       .append($('<pre>').html('<code></code>'))
     )
     .append($('<div class=\'modal-footer\'>')
-      .append('<a target=\'blank\' href=\'//www.codecademy.com/docs/submission_tests\'>About Correctness Tests</a> &nbsp;|&nbsp; <a target=\'blank\' href=\'#\'>Feedback</a> &nbsp;')
+      .append('<a target=\'blank\' href=\'//www.codecademy.com/docs/submission_tests\'>About Correctness Tests</a> &nbsp;|&nbsp; <a target=\'blank\' href=\'//j.mp/17nuoIp\'>Feedback</a> &nbsp;')
       .append($('<button class=\'btn btn-small\' data-dismiss=\'modal\'>').text('Close'))
     ).appendTo($('body'));
   }

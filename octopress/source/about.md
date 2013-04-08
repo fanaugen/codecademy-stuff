@@ -13,7 +13,7 @@ It was all a distributed mess. Now it’s all here in one place, neatly arranged
 
 - [Q&A Forum Answers](qa.html)
 - [Articles](articles/index.html)
-- [Tools](code.html)
+- [Code](code)
 - [Blog](blog/archives)
 
 Look at the footer for information on how this blog works technically.
