@@ -32,13 +32,13 @@ footer: true
 
 - The `new` keyword
 
-	Read the [OOP section][1] of the JavaScript Glossary on Codecademy. The use of the `new` keyword is explained under "Class Instances and Usage".
+	Read the [OOP section][4] of the JavaScript Glossary on Codecademy. The use of the `new` keyword is explained under "Class Instances and Usage".
 
-	For more details, read [this answer][2] on StackOverflow or [this definition][3] in the Mozilla wiki.
+	For more details, read [this answer][5] on StackOverflow or [this definition][6] in the Mozilla wiki.
 
-[1]: http://www.codecademy.com/glossary/javascript#oop
-[2]: http://stackoverflow.com/a/3658673/1030985
-[3]: https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/new
+[4]: http://www.codecademy.com/glossary/javascript#oop
+[5]: http://stackoverflow.com/a/3658673/1030985
+[6]: https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/new
 
 - [What’s the `return` keyword?](http://www.codecademy.com/forum_questions/510c7d85a5aa59539400118b)
 
@@ -68,10 +68,10 @@ footer: true
 
 - [CSSLint warning: don’t use IDs in selectors](http://www.codecademy.com/forum_questions/50b26dcfa6e5461b2a0003b9)
 
-- Bold, Italic, Emphasis: `<b>`, `<i>` vs. `<em>`, `<strong>`: read [my answer][1] and [mtf](http://www.codecademy.com/mtf)’s [answer][2].
+- Bold, Italic, Emphasis: `<b>`, `<i>` vs. `<em>`, `<strong>`: read [my answer][7] and [mtf](http://www.codecademy.com/mtf)’s [answer][8].
 
-[1]: http://www.codecademy.com/forum_questions/5079b690918e7b02000008ce
-[2]: http://www.codecademy.com/forum_questions/50908c3176c79b0200000379
+[7]: http://www.codecademy.com/forum_questions/5079b690918e7b02000008ce
+[8]: http://www.codecademy.com/forum_questions/50908c3176c79b0200000379
 
 
 ## Ruby
@@ -83,10 +83,10 @@ footer: true
 
 - [Ruby `'`single-quoted`'` vs. `"`double-quoted`"` strings](http://www.codecademy.com/forum_questions/514b78373d1166aa0d000051#response-514c30e0eafed913280015c6)
 
-- Sorting with a block: answered in detail [here][1] and [here][2]
+- Sorting with a block: answered in detail [here][9] and [here][10]
 
-[1]: http://www.codecademy.com/forum_questions/51460322cedb4b1444006c54#response-51461350bde24d1bb00070b4
-[2]: http://www.codecademy.com/forum_questions/5149e1bbcbe835068200336d#response-5149ad20252e31d4950022b9
+[9]: http://www.codecademy.com/forum_questions/51460322cedb4b1444006c54#response-51461350bde24d1bb00070b4
+[10]: http://www.codecademy.com/forum_questions/5149e1bbcbe835068200336d#response-5149ad20252e31d4950022b9
 
 - [Value Assignment and `x += 1`](http://www.codecademy.com/forum_questions/514788af008571acea000271) – *with pictures!*. This answer isn’t Ruby-specific. It applies to pretty much every programming language.
 
@@ -105,11 +105,11 @@ footer: true
 
 - [Python `print` without inserting a newline](http://www.codecademy.com/forum_questions/510b26d889df24a7930019a4)
 
-- purify doesn’t work on list `[4,5,5,4]`: answered [here][1], [here][2], and [here][3].
+- purify doesn’t work on list `[4,5,5,4]`: answered [here][11], [here][12], and [here][13].
 
-[1]: http://www.codecademy.com/forum_questions/51020170958665ced4000775
-[2]: http://www.codecademy.com/forum_questions/5102f0fe0f10f34bc500049b
-[3]: http://www.codecademy.com/forum_questions/510769cab6bc6bdce50013b8
+[11]: http://www.codecademy.com/forum_questions/51020170958665ced4000775
+[12]: http://www.codecademy.com/forum_questions/5102f0fe0f10f34bc500049b
+[13]: http://www.codecademy.com/forum_questions/510769cab6bc6bdce50013b8
 
 
 ## jQuery

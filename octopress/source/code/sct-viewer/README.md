@@ -19,7 +19,7 @@ The bookmarklet only works on Codecademy exercise pages (like [this one][ex]). D
 [ex]: http://www.codecademy.com/courses/javascript-lesson-n1woS/1/1
 
 <div style="text-align:center;background-color:lightyellow;vertical-align:middle;height:3em;padding:.8em;">
-	<p><a title="Add this to your Bookmarks" href="#placeholder">Show SCT</a></p>
+	<p><a title="Add this to your Bookmarks" href="javascript:insert_code_here">Show SCT</a></p>
 </div>
 
 **There may be bugs** and I haven’t tested it on any browser other than the latest Chrome for Mac. So if you find any errors, do let me know.

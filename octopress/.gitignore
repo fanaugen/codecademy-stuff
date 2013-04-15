@@ -6,3 +6,5 @@ _deploy/
 .DS_Store
 
 
+.pygments-cache/
+source/stylesheets/screen.css
