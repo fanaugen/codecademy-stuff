@@ -9,15 +9,15 @@ Dependencies:
 How To Use: the minified code can be used in a bookmarklet to execute
 the script on the page of the exercise you’re currently viewing.
 
-Version: 0.1.1
-Last updated: 2013-04-15 (fix bug related to HTML tags)
+Version: 0.1.2
+Last updated: 2013-04-15 (fix pathname bug -- should now get current exercise correctly)
 */
 
 (function(){
 
 try {
   // step 1: get the code and some info
-  var i    = location.pathname.split('/')[4] - 1,
+  var i    = location.pathname.match(/\d+$/)[0] - 1,
       proj = CCDATA.composer.current_project,
       auth = proj.author.handle,
       lang = proj.language.toLowerCase(),
