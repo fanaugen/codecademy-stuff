@@ -30,6 +30,7 @@ footer: true
 [2]: http://www.codecademy.com/forum_questions/505a2562f0dfd30002049eb0
 [3]: http://www.codecademy.com/forum_questions/4f4ceb235e0a2000030161a2
 
+
 - The `new` keyword
 
 	Read the [OOP section][4] of the JavaScript Glossary on Codecademy. The use of the `new` keyword is explained under "Class Instances and Usage".
@@ -39,6 +40,7 @@ footer: true
 [4]: http://www.codecademy.com/glossary/javascript#oop
 [5]: http://stackoverflow.com/a/3658673/1030985
 [6]: https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Operators/new
+
 
 - [What’s the `return` keyword?](http://www.codecademy.com/forum_questions/510c7d85a5aa59539400118b)
 
@@ -115,3 +117,4 @@ footer: true
 ## jQuery
 - [Avoiding Redundancy in jQuery](http://www.codecademy.com/forum_questions/5125a0fe7352f2bf9e005273)
 
+- [Changing box size on mouseover](http://www.codecademy.com/forum_questions/516c934a3168b4d8f700277e) using jQuery vs. CSS3
