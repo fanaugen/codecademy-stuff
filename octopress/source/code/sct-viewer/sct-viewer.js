@@ -20,7 +20,7 @@ try {
   var i    = location.pathname.match(/\d+$/)[0] - 1,
       proj = CCDATA.composer.current_project,
       auth = proj.author.handle,
-      lang = proj.language.toLowerCase(),
+      lang = CCDATA.composer.course.language.toLowerCase(),
       sct  = proj.checkpoints[i].test_functions;
 
   // step 2: load bootstrap-modal.js
