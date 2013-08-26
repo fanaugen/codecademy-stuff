@@ -5,12 +5,14 @@ comments: true
 sharing: true
 footer: true
 ---
+
 ## General
 - [Formatting Code in Forums](http://www.codecademy.com/forum_questions/509b9e7c3feca80200001d40#response-509bc71d6d816a0200003251)
+- [An illustrated analogy for explaining dereferencing and value assignment](http://www.codecademy.com/forum_questions/514788af008571acea000271)
 
 
 ## JavaScript
-- [Semicolons!](http://www.codecademy.com/forum_questions/507f6dd09266b70200000d7e#response-508000efde2d860200004bbe)
+- [A Guide to Semicolons in JavaScript](http://www.codecademy.com/blog/78)
 
 - [Do you need an empty pair of parentheses for a `function`?](http://www.codecademy.com/forum_questions/4f6108e51a440d000300e959)
 
@@ -71,6 +73,11 @@ footer: true
 - [CSSLint warning: don’t use IDs in selectors](http://www.codecademy.com/forum_questions/50b26dcfa6e5461b2a0003b9)
 
 - Bold, Italic, Emphasis: `<b>`, `<i>` vs. `<em>`, `<strong>`: read [my answer][7] and [mtf](http://www.codecademy.com/mtf)’s [answer][8].
+  
+- [Vertical (and horizontal) alignment of text (in circles)](http://www.codecademy.com/forum_questions/51db458b9c4e9d073a000613#response-51dd43819c4e9d6c7c00512d)
+
+- [floated p inside a hyperlink: no underline](http://www.codecademy.com/forum_questions/51dce51c8c1ccc8a8a000552)
+
 
 [7]: http://www.codecademy.com/forum_questions/5079b690918e7b02000008ce
 [8]: http://www.codecademy.com/forum_questions/50908c3176c79b0200000379
@@ -94,10 +101,13 @@ footer: true
 
 - [Ruby: Counting (down) in steps](http://www.codecademy.com/forum_questions/5147a712474ee6b056001411)
 
+- [`downto` doesn’t work with Strings](http://www.codecademy.com/forum_questions/514c5d99fe6e1714b8001d9a)
+
 - [Conditional Assignment: `x||=y` is a shorthand for `x=x||y`](http://www.codecademy.com/forum_questions/5149680470d288f3540016f6#response-5149c7c787058869e2002a48)
 
 
 ## Python
+- [`return` in Python](http://www.codecademy.com/forum_questions/51c0e35d7c82caace80008b1)
 
 - [Printing Unicode characters in Python 2](http://www.codecademy.com/forum_questions/5099b78905ac410200003298)
 
