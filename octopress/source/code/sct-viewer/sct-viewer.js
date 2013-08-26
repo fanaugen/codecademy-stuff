@@ -9,8 +9,8 @@ Dependencies:
 How To Use: the minified code can be used in a bookmarklet to execute
 the script on the page of the exercise you’re currently viewing.
 
-Version: 0.1.2
-Last updated: 2013-04-15 (fix pathname bug -- should now get current exercise correctly)
+Version: 0.2
+Last updated: 2013-08-26 (merged change by Joah G. -- should now work with the updated Codecademy API)
 */
 
 (function(){
@@ -51,7 +51,7 @@ function do_the_magic(){
     ).appendTo($('body'));
   }
 
-  // step 4: sanitize, insert, and highlight the code
+  // step 4: sanitize, insert, and highlight the code (currently not visible)
   sct = sct.replace(/&/g,'&'+'amp;').replace(/</g,'&'+'lt;').replace(/>/g,'&'+'gt;')
   var $code = $modal.find('code').eq(0)
     .attr('class','language-'+ (lang == 'web' ? 'javascript' : lang))
