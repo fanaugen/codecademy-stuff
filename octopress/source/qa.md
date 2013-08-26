@@ -8,6 +8,7 @@ footer: true
 
 ## General
 - [Formatting Code in Forums](http://www.codecademy.com/forum_questions/509b9e7c3feca80200001d40#response-509bc71d6d816a0200003251)
+
 - [An illustrated analogy for explaining dereferencing and value assignment](http://www.codecademy.com/forum_questions/514788af008571acea000271)
 
 
