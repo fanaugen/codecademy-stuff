@@ -1,1 +1,0 @@
-## Export a Codecademy Exercise to Plain Text
