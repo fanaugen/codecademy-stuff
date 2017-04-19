@@ -1,0 +1,3 @@
+[submodule "octopress/.themes/light"]
+	path = octopress/.themes/light
+	url = git://github.com/octopress-themes/classic-light.git
