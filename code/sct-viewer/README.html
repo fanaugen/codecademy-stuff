@@ -75,16 +75,17 @@ originally written by minrice (Michael Tackes), with valuable &hellip;">
   
   <p>This JavaScript bookmarklet is based on the Submission Correctness Viewer
 originally written by <a href="http://www.codecademy.com/users/minrice2099">minrice</a> (Michael Tackes), with valuable contributions
-by <a href="https://github.com/JoahG">Joah G.</a></p>
+by <a href="https://github.com/JoahG">Joah G</a>. It uses Bootstrap’s <a href="http://bootstrapdocs.com/v3.2.0/docs/javascript/#modals">Modal</a> component (Codecademy
+already loads the CSS for it; the javascript part is loaded dynamically on
+first use).</p>
 
-<p>It uses Twitter Bootstrap’s <a href="http://bootstrapdocs.com/v3.2.0/docs/javascript/#modals">Modal</a> component (Codecademy already loads the CSS for that; the javascript part is loaded dynamically on first use).</p>
-
-<p>The bookmarklet only works on Codecademy <em>exercise pages</em> (like <a href="http://www.codecademy.com/courses/javascript-lesson-n1woS/1/1">this one</a>). To use it:</p>
+<p>The bookmarklet only works on Codecademy <em>exercise pages</em> (such as <a href="https://www.codecademy.com/courses/ruby-beginner-en-nOho7/0/2">this one</a>). To use it:</p>
 
 <ol>
 <li>Drag the link below to your Bookmarks Bar</li>
-<li><strong>(optional)</strong> edit the bookmarklet, replacing the URL with <a href="http://j.mp/sct-viewer2">this code</a></li>
-<li>Visit a Codecademy exercise page and click the bookmarklet</li>
+<li><strong>(optional)</strong> edit the bookmarklet, replacing the URL with
+<a target="_blank" href="http://j.mp/sct-viewer2">this code</a></li>
+<li>Visit a Codecademy <a href="https://www.codecademy.com/courses/ruby-beginner-en-nOho7/0/2">exercise page</a> and click the bookmarklet</li>
 </ol>
 
 
@@ -92,9 +93,13 @@ by <a href="https://github.com/JoahG">Joah G.</a></p>
     <span><a title="Drag me to your Bookmarks" href="javascript:(function(){try{var c=CCDATA.composer,pi= +location.pathname.match(/(\d+)\/\d+$/)[1],ci=c.current_checkpoint_index,p=c.course.projects[pi],a=p.author.handle,l=c.course.language.toLowerCase(),t=p.checkpoints[ci].test_functions;if($.fn.modal){sm()}else{$.getScript('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/modal.min.js').done(sm).fail(function(r,s,e){throw e})}}catch(e){return console.log(e.message)}function sm(){var $m=$('#sct');if($m.length==0){$m=$('<div id=\'sct\' class=\'modal fade hide\' style=\'width:700px\'>').append($('<div class=\'modal-header\'>').append($('<button type=\'button\' class=\'close\' data-dismiss=\'modal\'>').text('×')).append('<h3>Correctness Test <small> &nbsp; by '+a+'</small></h3>')).append('<div class=\'modal-body\'><pre><code></code></pre></div>').append($('<div class=\'modal-footer\'>').append('<a target=\'blank\' href=\'//j.mp/17nuoIp\'>Feedback</a> &nbsp;').append($('<button class=\'btn btn-small\' data-dismiss=\'modal\'>').text('Close'))).appendTo($('body'))}t=t.replace(/&amp;/g,'&amp;').replace(/&lt;/g,'&lt;').replace(/>/g,'&gt;');var $code=$m.find('code').eq(0).attr('class','language-'+(l=='web'?'javascript':l)).html(t);hljs&amp;&amp;hljs.highlightBlock($code.get(0));$m.modal('show')}})();">Cheat</a></span>
 </div></p>
 
-<p><strong>There may be bugs</strong> and I haven’t tested it on any browser other than the latest Chrome for Mac. So if you find any errors, do let me know.</p>
+<p>It only works for certain types of exercise page. Tested on a couple of
+JavaScript, Python, and Ruby exercises. <strong>There may be bugs</strong> and I haven’t
+tested it on any browser other than the latest Chrome for Mac.</p>
 
 <h2>Source</h2>
+
+<p>The code is <a href="https://github.com/fanaugen/codecademy-stuff/tree/master/octopress/source/code/sct-viewer">on GitHub</a>, so if you have improvements, just send me a pull request!</p>
 
 <p><figure class='code'><figcaption><span>SCT Viewer (sct-viewer.js)</span> <a href='/codecademy-stuff/code/sct-viewer/sct-viewer.js'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
