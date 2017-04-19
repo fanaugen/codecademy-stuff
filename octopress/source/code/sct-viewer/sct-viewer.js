@@ -9,56 +9,53 @@ Dependencies:
 How To Use: the minified code can be used in a bookmarklet to execute
 the script on the page of the exercise you’re currently viewing.
 
-Version: 0.2
-Last updated: 2013-08-26 (merged change by Joah G. -- should now work with the updated Codecademy API)
+Version: 0.3
+Last updated: 19. April 2017 to match Codecademy’s new UI
 */
 
 (function(){
 
 try {
-  // step 1: get the code and some info
-  var i    = location.pathname.match(/\d+$/)[0] - 1,
-      proj = CCDATA.composer.current_project,
-      auth = proj.author.handle,
-      lang = CCDATA.composer.course.language.toLowerCase(),
-      sct  = proj.checkpoints[i].test_functions;
+  // step 1: get the SCT code and author name
+  var c  = CCDATA.composer,
+      pi = +location.pathname.match(/(\d+)\/\d+$/)[1],    // pi for project index
+      ci = c.current_checkpoint_index,                    // ci for checkpoint index
+      p  = c.course.projects[pi],                         // p is the project
+      a  = p.author.handle,                               // a for author
+      l  = c.course.language.toLowerCase(),               // l for language (syntax highlighting)
+      t  = p.checkpoints[ci].test_functions;              // t is the test code
 
   // step 2: load bootstrap-modal.js
-  if ($.fn.modal) do_the_magic()
-  else $.getScript('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap'+
-  '/2.3.1/js/bootstrap-modal.js')
-  .done(do_the_magic)
-  .fail(function(r,s,e){throw e})
+  if ($.fn.modal) sm()
+  else $.getScript('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/modal.min.js')
+        .done(sm)
+        .fail(function(r,s,e){throw e})
 } catch (e) {
   return console.log(e.message);
 }
-function do_the_magic(){
+function sm(){
   // step 3: compose the modal div
-  var $modal, modal_exists = $('#sct').length > 0;
-  if (modal_exists) { // the modal is already in the document
-    $modal = $('#sct');
-  } else {       // create the modal
-    $modal = $('<div id=\'sct\' class=\'modal fade hide\' style=\'width:680px\'>')
+  var $m = $('#sct'); // the modal
+  if ($m.length == 0) { // modal is not yet in the document
+    $m = $('<div id=\'sct\' class=\'modal fade hide\' style=\'width:700px\'>')
       .append($('<div class=\'modal-header\'>')
         .append($('<button type=\'button\' class=\'close\' data-dismiss=\'modal\'>').text('×'))
-        .append('<h3>Correctness Test <small> &'+'nbsp; by '+auth+'</small></h3>')
-    ).append($('<div class=\'modal-body\'>')
-      .append($('<pre>').html('<code></code>'))
-    )
+        .append('<h3>Correctness Test <small> &nbsp; by '+a+'</small></h3>')
+    ).append('<div class=\'modal-body\'><pre><code></code></pre></div>')
     .append($('<div class=\'modal-footer\'>')
-      .append('<a target=\'blank\' href=\'//www.codecademy.com/docs/submission_tests\'>About Correctness Tests</a> &'+'nbsp;|&'+'nbsp; <a target=\'blank\' href=\'//j.mp/17nuoIp\'>Feedback</a> &'+'nbsp;')
+      .append('<a target=\'blank\' href=\'//j.mp/17nuoIp\'>Feedback</a> &nbsp;')
       .append($('<button class=\'btn btn-small\' data-dismiss=\'modal\'>').text('Close'))
     ).appendTo($('body'));
   }
 
   // step 4: sanitize, insert, and highlight the code (currently not visible)
-  sct = sct.replace(/&/g,'&'+'amp;').replace(/</g,'&'+'lt;').replace(/>/g,'&'+'gt;')
-  var $code = $modal.find('code').eq(0)
-    .attr('class','language-'+ (lang == 'web' ? 'javascript' : lang))
-    .html(sct)
+  t = t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+  var $code = $m.find('code').eq(0)
+    .attr('class','language-'+ (l == 'web' ? 'javascript' : l))
+    .html(t)
   hljs && hljs.highlightBlock($code.get(0))
 
   // step 5: show the modal
-  $modal.modal('show')
+  $m.modal('show')
 }
 })();
