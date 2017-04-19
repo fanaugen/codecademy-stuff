@@ -14,7 +14,7 @@ The question about how **recursion** works is among the most frequently asked on
 <big>**To understand the diagrams that you see below, please read [this article](https://github.com/fanaugen/codecademy-stuff/wiki/Fibonacci-and-Recursive-Function-Calls). It will also provide you with a basic understanding of what happens in the computer when a function calls _"itself"_.**</big><br>
 In short: a diagram like this...
 
-![](https://dl.dropbox.com/u/288369/answers/codecademy/11%207%20square%2049%20basic.png)
+![](/images/11%207%20square%2049%20basic.png)
 
 ...represents the fact that the function `square`, when called with the argument `7` (like this: `square(7)`) will **return** the number `49`. The function itself is most probably defined as:
 
@@ -22,7 +22,7 @@ In short: a diagram like this...
 
 So, if we wanted to visualize on a _deeper level of detail_ what happens **inside** this function when it is called with the argument `7`, we'd do this:
 
-![](https://dl.dropbox.com/u/288369/answers/codecademy/11%207%20square%2049%20detail.png)
+![](/images/11%207%20square%2049%20detail.png)
 
 As you can see, a function's **return value** is represented by the single green node that all paths which diverge from a function lead to (because every function in JavaScript only has **one** return value).
 
@@ -83,4 +83,4 @@ You see, when we're acting like we're the computer, all we need to do is rewrite
 
 Now let's have a look at the same thing as a diagram:
 
-![](https://dl.dropbox.com/u/288369/answers/codecademy/12%20factorial.png)
+![](/images/12%20factorial.png)

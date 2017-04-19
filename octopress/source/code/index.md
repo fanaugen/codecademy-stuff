@@ -9,4 +9,5 @@ footer: true
 ## Code I’ve written for Codecademy
 
 * [Correctness Test Viewer](sct-viewer/README.html)
+* [Export Exercise](export_exercise/README.html)
 
