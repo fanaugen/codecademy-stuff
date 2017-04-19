@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Recursive Functions - Codecademic Record</title>
+  <meta name="author" content="Alex Jahraus">
+
+  
+  <meta name="description" content="Recursive Functions The question about how recursion works is among the most frequently asked ones in Codecademy Forums for exercises such as this &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://fanaugen.github.io/codecademy-stuff/articles/Recursive-Functions.html">
+  <link href="/codecademy-stuff/favicon.png" rel="icon">
+  <link href="/codecademy-stuff/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/codecademy-stuff/javascripts/modernizr-2.0.js"></script>
+  <script src="/codecademy-stuff/javascripts/ender.js"></script>
+  <script src="/codecademy-stuff/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/codecademy-stuff/atom.xml" rel="alternate" title="Codecademic Record" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/codecademy-stuff/">Codecademic Record</a></h1>
+  
+    <h2>(by-)products of my activity as a codecademic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/codecademy-stuff/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:fanaugen.github.io/codecademy-stuff" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/codecademy-stuff/index.html">About</a></li>
+  <li><a href="/codecademy-stuff/articles/index.html">Articles</a></li>
+  <li><a href="/codecademy-stuff/qa.html">FAQ</a></li>
+  <li><a href="/codecademy-stuff/code/index.html">Code</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">Recursive Functions</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-05T23:43:09+00:00" pubdate data-updated="true"></time></p>
+  </header>
+  
+  <p>The question about how <strong>recursion</strong> works is among the most frequently asked ones in Codecademy Forums for exercises such as <a href="http://www.codecademy.com/courses/javascript-lesson-205/1#!/exercises/0">this one</a>. This text will walk you through what happens in your JavaScript when a recursive function is called.</p>
+
+<h2>How to read the diagrams</h2>
+
+<p><big><strong>To understand the diagrams that you see below, please read <a href="https://github.com/fanaugen/codecademy-stuff/wiki/Fibonacci-and-Recursive-Function-Calls">this article</a>. It will also provide you with a basic understanding of what happens in the computer when a function calls <em>"itself"</em>.</strong></big><br>
+In short: a diagram like this...</p>
+
+<p><img src="/codecademy-stuff/images/11%207%20square%2049%20basic.png" alt="" /></p>
+
+<p>...represents the fact that the function <code>square</code>, when called with the argument <code>7</code> (like this: <code>square(7)</code>) will <strong>return</strong> the number <code>49</code>. The function itself is most probably defined as:</p>
+
+<pre><code>function square(n) { return n * n }
+</code></pre>
+
+<p>So, if we wanted to visualize on a <em>deeper level of detail</em> what happens <strong>inside</strong> this function when it is called with the argument <code>7</code>, we'd do this:</p>
+
+<p><img src="/codecademy-stuff/images/11%207%20square%2049%20detail.png" alt="" /></p>
+
+<p>As you can see, a function's <strong>return value</strong> is represented by the single green node that all paths which diverge from a function lead to (because every function in JavaScript only has <strong>one</strong> return value).</p>
+
+<h2>Recursive Factorial</h2>
+
+<p>An often-cited example of a recursive function is the one that uses recursion to calculate the <strong>factorial</strong> of a natural number. Wikipedia provides the following <em>recursive definition</em> of the factorial:</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Factorial#Definition"><img src="http://upload.wikimedia.org/math/a/1/9/a193e2aad488f09d34cbd01bcb6b9504.png"></a></p>
+
+<p>See the word "if" there? There are some comparison expressions like <code>n&gt;0</code> as well… actually, this formal mathematical definition <strong>translates into</strong> the actual working code in a programming language (let's say JavaScript) in a straightforward way: we just use the JavaScript syntax for the <code>if</code> construct, and we write <code>fact(n)</code> instead of <code>n!</code> ("fact" is short for "factorial", of course), to get this:</p>
+
+<pre><code>function fact(n) {
+    if ( n === 0 ) return 1;
+    if ( n  &gt;  0 ) return n * fact( n - 1 );
+}
+</code></pre>
+
+<p>Now it's obvious that if we call this function with a <code>0</code> as argument, the first <code>if</code> condition will fire, and it'll return <code>1</code>. Boring but essential! Because this is the so-called <em>base case</em>, the one that the recursion must eventually reach in order to terminate. So what happens when the input argument is larger than zero, as in <code>fact(4)</code>, for instance?</p>
+
+<p>Before I present you with my fancy diagram, let's use a more text-based approach first (or, math-based if you will). You can think of a function as a simple device that <strong>rewrites expressions</strong>. You've all seen this in Math class at least a hundred times:</p>
+
+<pre><code>x = (5)² + 1
+x = 25   + 1
+</code></pre>
+
+<p>The only difference between the first and the second line is that <code>(5)²</code> was <strong>rewritten</strong> as <code>25</code>, which is simply the <strong>result of applying the square function <code>()²</code> to the value <code>5</code></strong>. Translate that into JavaScript, and you have, as above:</p>
+
+<pre><code>function square(n) { return n * n }
+square(5);
+5 * 5;
+</code></pre>
+
+<p>It doesn't matter if you write <code>square(5)</code> or <code>5 * 5</code> at that point, they're <em>absolutely equivalent</em>. So wherever we use the former, we can use the latter instead (just as we can interchangeably use <code>(5)²</code> and <code>25</code> – they're <em>the same</em>). The function that we used just stupidly <strong>rewrites</strong> things for us. And we can easily do the rewriting ourselves using pencil and paper: let's assume we have the function given above and the line <code>square(5)</code>. To obtain the result, we do this:</p>
+
+<ol>
+<li><strong>replace</strong> <code>square(5)</code> by what the <code>square</code> method <strong>returns</strong> (i.e. everything <strong>after</strong> the <code>return</code> keyword)</li>
+<li>since it was <code>square(5)</code> and not <code>square(n)</code>, <strong>replace</strong> every <code>n</code> by <code>5</code></li>
+<li>You're done!</li>
+</ol>
+
+
+<p>In JavaScript code:</p>
+
+<pre><code>square(5)      // function call
+n * n          // replaced by what is returned
+5 * 5          // n replaced by actual argument
+25             // simplifying, done!
+</code></pre>
+
+<p>We can apply <em>the exact same technique</em> to the <code>factorial</code> function now, calling it with the argument <code>4</code>, now doing the replacements and simplifications all in one step. There are only two differences between <code>fact()</code> and the simpler <code>square</code> method above:</p>
+
+<ul>
+<li><code>square()</code> always does the same kind of rewriting, while for <code>fact()</code> it depends on the input value</li>
+<li>unlike <code>square()</code>, <code>fact()</code> can call <code>fact()</code> internally because it is <em>recursive</em></li>
+</ul>
+
+
+<p>So let's try and rewrite this stuff, shall we? We will simplify obvious arithmetic expressions: <code>4-1</code> equals <code>3</code>, so we will just use <code>3</code> on the next line.</p>
+
+<pre><code>  fact(4)                         // 4 &gt; 0
+= 4 * fact(4-1)                   // 4-1 = 3 &gt; 0
+= 4 * 3 * fact(3-1)               // 3-1 = 2 &gt; 0
+= 4 * 3 * 2 * fact(2-1)           // 2-1 = 1 &gt; 0
+= 4 * 3 * 2 * 1 * fact(1-1)       // 1-1 = 0 equals 0 --&gt; return 1
+= 4 * 3 * 2 * 1 * 1
+= 24
+</code></pre>
+
+<p>You see, when we're acting like we're the computer, all we need to do is rewrite expressions! In the lines above, when <code>stuff2</code> is immediately <strong>below</strong> <code>stuff1</code>, it means that <code>stiff1</code> was <strong>rewritten</strong> with the result being <code>stuff2</code>, and the rewriting is justified by the fact that both are absolutely equivalent.</p>
+
+<p>Now let's have a look at the same thing as a diagram:</p>
+
+<p><img src="/codecademy-stuff/images/12%20factorial.png" alt="" /></p>
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-05T23:43:09+00:00" pubdate data-updated="true"></time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://fanaugen.github.io/codecademy-stuff/articles/Recursive-Functions.html" data-via="fanaugen" data-counturl="http://fanaugen.github.io/codecademy-stuff/articles/Recursive-Functions.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/fanaugen">@fanaugen</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'fanaugen',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/codecademy-stuff/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("fanaugen", 3, false);
+    });
+  </script>
+  <script src="/codecademy-stuff/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/fanaugen" class="twitter-follow-button" data-show-count="">Follow @fanaugen</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Alex Jahraus |
+  <a href="https://github.com/fanaugen/codecademy-stuff/blob/master/octopress/source">source code</a> |
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codecademytools';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://fanaugen.github.io/codecademy-stuff/articles/Recursive-Functions.html';
+        var disqus_url = 'http://fanaugen.github.io/codecademy-stuff/articles/Recursive-Functions.html';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

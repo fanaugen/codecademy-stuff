@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Fibonacci and Recursive Function Calls - Codecademic Record</title>
+  <meta name="author" content="Alex Jahraus">
+
+  
+  <meta name="description" content="Fibonacci and Recursive Function Calls In reply to this question about this exercise. Diagrams made with Lucidchart. The Beanstalk The growing &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://fanaugen.github.io/codecademy-stuff/articles/Fibonacci-and-Recursive-Function-Calls.html">
+  <link href="/codecademy-stuff/favicon.png" rel="icon">
+  <link href="/codecademy-stuff/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/codecademy-stuff/javascripts/modernizr-2.0.js"></script>
+  <script src="/codecademy-stuff/javascripts/ender.js"></script>
+  <script src="/codecademy-stuff/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/codecademy-stuff/atom.xml" rel="alternate" title="Codecademic Record" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/codecademy-stuff/">Codecademic Record</a></h1>
+  
+    <h2>(by-)products of my activity as a codecademic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/codecademy-stuff/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:fanaugen.github.io/codecademy-stuff" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/codecademy-stuff/index.html">About</a></li>
+  <li><a href="/codecademy-stuff/articles/index.html">Articles</a></li>
+  <li><a href="/codecademy-stuff/qa.html">FAQ</a></li>
+  <li><a href="/codecademy-stuff/code/index.html">Code</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">Fibonacci and Recursive Function Calls</h1>
+    <p class="meta">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-11T06:58:17+00:00" pubdate data-updated="true"></time></p>
+  </header>
+  
+  <p>In reply to <a href="http://www.codecademy.com/forum_questions/50483966f126140002013530">this question</a> about <a href="http://www.codecademy.com/courses/javascript-lesson-205/2#!/exercises/3">this exercise</a>. Diagrams made with <a href="https://www.lucidchart.com/">Lucidchart</a>.</p>
+
+<h2>The Beanstalk</h2>
+
+<p>The growing beanstalk is an example of the Fibonacci sequence, which is defined <em>recursively</em> …</p>
+
+<p><img src="/codecademy-stuff/images/Fibonacci_math.png" alt="" /></p>
+
+<p>… simply because <em>there's no other way</em> of defining it. A Fibonacci number is the sum of its predecessor and its predecessor's predecessor, so you absolutely need to know the 8th and 9th Fibonacci number if you want to calculate the 10th.</p>
+
+<p>Now in order to explain how the Fibonacci Beanstalk function works <em>in the computer</em>, allow me to go back quite a few steps and start with some really minimalistic, basics functions, then move on to more complex ones.</p>
+
+<p>The visualizations below try to illustrate what happens <strong>when a function is called</strong> with a particular input. Here's how to interpret the diagrams:</p>
+
+<ul>
+<li>a <strong>rectangle</strong> is a <em>function or operator</em> (functions are light yellow)</li>
+<li>a rectangle with two <strong>rounded sides</strong> is a <em>value</em></li>
+<li>an <strong>arrow</strong> pointing from a value to a function means that the function is <em>called</em> with that value as an <em>argument</em>. Input values to functions are light red.</li>
+<li>a <strong>single arrow</strong> pointing <strong>away from a function</strong> and to a (light green) value means that this function <em>returns</em> that value.</li>
+<li>functions have <strong>zero or one</strong> output. If you see <em>two arrows</em> pointing away from a function, this is <strong>not</strong> the function's return value, but a schematic representation of what happens <em>internally</em> when the function runs</li>
+<li>every function discussed below has <strong>one</strong> input value. <strong>Binary operators</strong> such as <code>+</code> have <strong>two</strong> input values and one output, of course.</li>
+</ul>
+
+
+<p>I think this will all be intuitive enough, so just dive into it.</p>
+
+<h2>The simplest functions</h2>
+
+<p>You are probably familiar with JavaScript's <code>console.log</code>. It has an optional input value. It prints that value, but doesn't <strong>return</strong> anything. So we'll represent it as</p>
+
+<p><img src="/codecademy-stuff/images/00%20console.png" alt="" /></p>
+
+<p>Trivial, easy, and boring... Let's move on quickly. Next comes the perhaps simplest possible function that <code>return</code>s a value:</p>
+
+<pre><code>function ident(x) { return x }
+</code></pre>
+
+<p><img src="/codecademy-stuff/images/01%20identity.png" alt="" /></p>
+
+<p>The diagram above reads as follows: when you call <code>ident(1)</code>, you get <code>1</code>. In other words, if the (light red) <strong>input</strong> to the <code>ident</code> <strong>function</strong> is <code>1</code>, the <strong>return value</strong> (light green) is <code>1</code> as well.</p>
+
+<p>You can easily see that this function isn't particularly useful or exciting. It just <em>returns</em> whatever you give it. But you already <em>know</em> that <code>1</code> is <code>1</code>, you don't need a <em>function</em> to tell you that. At this point it simply serves to explain my diagram notation.</p>
+
+<p>So how about a function that really <em>accomplishes</em> something? Here it goes:</p>
+
+<h2>The black box and its dark innards</h2>
+
+<pre><code>function add1(x) { return x + 1 }
+</code></pre>
+
+<p><img src="/codecademy-stuff/images/02%20add_one.png" alt="" /></p>
+
+<p>Oh yeah, <em><strong>now</strong></em> we're talking! This little fella here will get you the successor of the number you give it. <em>Number</em> comes in, <em>number plus one</em> comes out. <em><strong>Huge</strong></em> time-saver :)  But actually the diagram above is simplifying things a little. It treats the function like a <em><strong>“black box”</strong></em>: you throw a <code>7</code> in, and an <code>8</code> comes out the other end. If you repeat this enough times with different values, you will quickly get a fairly good idea about <em>what</em> the box does, but you don't actually see <em>how</em> it actually <em>works</em>.
+No reason not to have a look inside – let's crack it open and examine it, shall we?</p>
+
+<p><img src="/codecademy-stuff/images/03%20add_one_complex.png" alt="" /></p>
+
+<p>Now we see the inner workings of the immensely useful <code>add1</code> method. It takes your input value, then magically conjures a <code>1</code> out of thin air (amazing!!), then passes both values into an <strong>adder</strong> (or, <em>addition operator</em>), and this adder takes the two values and produces the (green) result, which the function can then <code>return</code>.</p>
+
+<p>Before we move on, let me elaborate a little on this <em>“black box”</em> metaphor. It can actually be helpful to conceive of a <em>function</em> as a <em>black box</em>, a <em>machine</em> that does one specific job only, does it quickly, reliably and predictably. For the minimalistic example above we know <em>exactly</em> what's happening inside of the machine, because we actually <em>built</em> it. However, most of the time it doesn't really matter to us <strong>how</strong> a function (or machine) works, as long as we know <strong>what</strong> it does. For instance, the <code>add1</code> thing above could actually perform some crazy calculations internally (such as <code>x+(100*100)-9999</code>), and we wouldn't care the slightest bit, so long as it comes up with the answer it was built for. But then again – even if we don't know (or <em>can't</em> know) <em>every</em> detail of how something works, it's <em>really important</em> to understand the workings of your function (or machine) on <strong>some</strong> level of detail, in order to be able to use it correctly.</p>
+
+<p>For example, I'm sure you're familiar with an <a href="http://en.wikipedia.org/wiki/Inkjet_printer">inkjet printer</a>. You don't know the exact details of how the mechanical and electronic components inside it work (in fact, no single person on Earth knows all that), but you know that it somehow puts tiny dots of ink on paper, and you wouldn't think of stuffing a <em>hamburger</em> in it, expecting <em>printed pages</em> to come out. You just know enough details to be aware of the fact that a printer <strong>cannot process</strong> hamburgers, just as the function <code>add1</code> above can't process paper (it only knows how to deal with __).</p>
+
+<p>And it's not just about knowing what a function cannot deal with <em>at all</em>, you also need to know that a function can behave <strong>in different ways</strong> depending on <strong>what you give it as an input</strong>. At this point, we'll cite the <code>fib</code> function, which takes a number <code>n</code> and <em>recursively</em> calculates the n-th Fibonacci number.</p>
+
+<pre><code>function fib(n) {
+    if (n &lt; 3) { return 1 }
+    else       { return fib(n-1) + fib(n-2) }
+}
+</code></pre>
+
+<p>As you have seen in the very first graphic of this article, the first two Fibonacci  are <code>1</code>, so <code>fib(1)</code> and <code>fib(2)</code> will both return <code>1</code>, while giving a larger number as <strong>input</strong> to <code>fib</code> will <strong>make <code>fib</code> do something <em>else</em></strong> (hence the <code>else</code> in programming languages). Actually this function is not entirely correct, because it will return <code>1</code> for negative numbers (but there's no such thing as a minus seventh Fibonacci number). But we will ignore this, assuming that whoever uses the function knows that they're not supposed to put hamburgers in a printer (or numbers below 1 into <code>fib</code>).</p>
+
+<p>Now the really interesting part, of course, happens inside the <code>else</code> block. We'll look at that in a second, for now just keep in mind that this is exactly the level of detail we <strong>must</strong> be aware of when we use this function: we need to know that it accepts , that it returns <code>1</code> if the input is any number below 3, and that it does <strong>something else entirely</strong> for larger numbers.</p>
+
+<h2>Functions that call other functions</h2>
+
+<p>Sometimes one function just isn't enough. There's division of labour, there's the separation of concerns. And in their noble quest to calculate the one result that you so greatly desire, some functions will <strong>call other functions</strong>, thus <em>delegating</em> part of the job to them and blindly trusting them to do it well.</p>
+
+<p>The example below is a function that will calculate the product of the square of the input and the successor of the input. And it uses two other functions: one that calculates the successor (our friend <code>add1</code> from the previous section) and one that can square : when you give a <code>4</code> to it, be sure that a <code>16</code> comes out the other end almost instantly.</p>
+
+<p>We will only take a look at the guts of the <em>outer</em> function, leaving the two inner helper functions alone (as black boxes), because we know well enough what they do and we don't care <em>how</em> they do it. So here's what happens if you feed our new function with the input value <code>2</code>. It makes <strong>two copies</strong> of your input. It feeds one copy to each of its two tireless servants, who calculate <code>add1(2)</code> (which is 3) and <code>(2*2)</code> (which is 4), respectively. It then takes <strong>the results that the internally called functions return</strong>, feeds them into the multiplier, and obviously returns <code>12</code>:</p>
+
+<pre><code>function add1_times_square(x) {
+    return add1(x) * square(x) // add1, times, square -- get it?
+}
+</code></pre>
+
+<p><img src="/codecademy-stuff/images/06%20times_square.png" alt="" /></p>
+
+<h2>Functions that call themselves (really?)</h2>
+
+<p>Now if a function can call another function, it can also call itself (after all, it <strong>is</strong> a function itself, right)? Functions that (mis)behave in this fashion are known as <strong>recursive</strong>. You probably learned in your first lesson about recursion that it's <strong>crazy dangerous</strong>, because just one wrong step can take you into an <strong>infinite loop</strong>, where you'll be stuck forever, right until the end of the world (or until your browser window crashes, depending on which event occurs first).</p>
+
+<p>So you have been taught to <strong>never, ever</strong> write code like this:</p>
+
+<pre><code>// I'm an infinite loop! At least I wanna be...
+function loop(x) { return loop(x) }
+</code></pre>
+
+<p>because this function will presumably just take your poor <code>x</code> and feed it right back into itself, right? Like this?</p>
+
+<p><img src="/codecademy-stuff/images/07%20loop%20simple.jpeg" alt="" /></p>
+
+<p>Well, yeah, kinda <strong>almost</strong> like this. In mathematical theory, for sure, that's precisely what happens. But computers don't work that way. A function never calls <strong>itself</strong>. Instead, what it does is that it <strong>creates a clone of itself</strong> and then <strong>calls that clone</strong>. Very creepy! Actually you can even see this reflected in the code we're written above: <code>loop(x) { return loop(x) }</code> – you see the word <code>loop</code> <strong>two</strong> times, and the second time is the clone that is created, erm, well, how often actually?</p>
+
+<p>This is what <strong>really</strong> happens inside your computer when you create an unlimitedly self-calling function such as the one above:</p>
+
+<p><img src="/codecademy-stuff/images/08%20loop%20actual.png" alt="" /></p>
+
+<p>You can read it like this: our program calls the function <code>loop</code> with the argument <code>x</code>,
+which calls <code>loop</code> with <code>x</code>, which calls <code>loop</code> with <code>x</code>, which calls <code>loop</code> with <code>x</code>... and so on.</p>
+
+<p>So the function keeps creating copies of itself, and it would do it until the end of time, but your computer has a limited memory, and it needs to keep track of all those hundreds of thousands of copies of both <code>loop</code> and <code>x</code> created every second. Several Gigabytes of memory would in theory get filled to the brim in no time. But most programming languages have a clever precaution against this. They impose a <strong>size limit</strong> on the so-called <strong>call stack</strong> (that is the big pile of function instances that are currently open, together with their local variables). Once this limit is reached, you're presented with a nasty <strong>error message</strong>. (Which is still much better than allowing some broken loop to fill your memory with nonsense and crash your entire machine!).</p>
+
+<p>So the lesson to take home from this is: always try and <strong>avoid infinite loops</strong>. But <strong>not</strong> because they're never going to stop – on the contrary, avoid them precisely because they <strong>will</strong> stop, and very quickly. Like a car stops when it hits a concrete wall. They don't call it <em>crashing</em> for no reason.</p>
+
+<p>But everything I've said up to this point is simply a lengthy introduction which mainly serves to make sure you understand how to read these diagrams. It was a mere <em>foreword</em> to what I <em>actually</em> wanted to explain, and that's how a <strong>recursive function</strong> works. In case you're still with me: this is where it gets interesting. So let's revisit <code>fib</code>, a simple function that calculates Fibonacci  through <em>recursion</em>, and watch it closely as it goes about its business.</p>
+
+<h2>The recursive Fibonacci function</h2>
+
+<p>You have already seen this code above. Basically the <em>level of detail</em> that we need to understand how this function works is exposed right here in the code:</p>
+
+<pre><code>function fib(x) {
+    if (x &lt;= 2) {
+      return 1;                        // Base case
+    }    
+      return fib(x-1) + fib(x-2);      // Recursive case
+}
+</code></pre>
+
+<p>You can see that the function body only has a simple <code>if</code> construct, with a <code>return</code> for the case that the condition is true and another <code>return</code> in case the condition isn't true. This means that it can only do one of these two things:</p>
+
+<ol>
+<li><p>if the number 2 or less, return 1</p></li>
+<li><p><em>otherwise</em>, call two copies (clones) of <code>fib</code>: one with the number reduced by 1 and another with the number reduced by 2. <strong>Wait for those copies to return results</strong>, then add the results together and return that.</p></li>
+</ol>
+
+
+<p><img src="/codecademy-stuff/images/09%20Fibonacci.png" alt="" /></p>
+
+<p>In this diagram, you can perfectly see the information flow caused by a call to <code>fib(4)</code>. You can also see that, while it only takes <strong>one</strong> instance of <code>fib</code> to calculate the first or the second Fibonacci number, you already need <strong>three</strong> instances to calculate the third one, <strong>five</strong> to calculate the fourth one, and <strong>nine</strong> <code>fib</code>s just to find out that the fifth fibonacci number is 5:</p>
+
+<p><img src="/codecademy-stuff/images/10%20Fibonacci%205.png" alt="" /></p>
+
+<p>There are two things we can learn from looking at this monstrosity:</p>
+
+<ul>
+<li><p>the number of functions that are called internally is almost doubled each time we increase the argument (when we're interested in the next Fibonacci number). This is because every call to <code>fib</code> with an argument larger than <code>2</code> will cause <strong>two additional calls</strong> – each of which may in turn cause two additional calls, and so on. This is why the Codecademy exercise author <a href="http://www.codecademy.com/courses/javascript-lesson-205/2#!/exercises/3">warns you</a> not to go over 40 with this recursive Fibonacci calculation function. Creating all those extra clones of <code>fib</code> is a <em>very</em> memory-consuming process.</p></li>
+<li><p>the algorithm is terribly inefficient. You can easily see that <code>fib(3)</code> and  <code>fib(1)</code> are calculated <em>twice</em>, and <code>fib(2)</code> is even called <strong>three times</strong> in the process of calculating <code>fib(5)</code>, and this waste of computer resources gets worse with larger .</p></li>
+</ul>
+
+
+<p>So to conclude, it's actually <strong>not a good idea</strong> to write a Fibonacci number generator using recursion.</p>
+
+<hr />
+
+<p>I hope you found this little educational text useful or at least entertaining. It is licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share-Alike</a>. Feel free to copy, modify, or sell it, just be sure to include a reference to this page as the original source.</p>
+
+  
+    <footer>
+      <p class="meta">
+        
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-09-11T06:58:17+00:00" pubdate data-updated="true"></time>
+        
+      </p>
+      
+        <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://fanaugen.github.io/codecademy-stuff/articles/Fibonacci-and-Recursive-Function-Calls.html" data-via="fanaugen" data-counturl="http://fanaugen.github.io/codecademy-stuff/articles/Fibonacci-and-Recursive-Function-Calls.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/fanaugen">@fanaugen</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'fanaugen',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/codecademy-stuff/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("fanaugen", 3, false);
+    });
+  </script>
+  <script src="/codecademy-stuff/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/fanaugen" class="twitter-follow-button" data-show-count="">Follow @fanaugen</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Alex Jahraus |
+  <a href="https://github.com/fanaugen/codecademy-stuff/blob/master/octopress/source">source code</a> |
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codecademytools';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://fanaugen.github.io/codecademy-stuff/articles/Fibonacci-and-Recursive-Function-Calls.html';
+        var disqus_url = 'http://fanaugen.github.io/codecademy-stuff/articles/Fibonacci-and-Recursive-Function-Calls.html';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

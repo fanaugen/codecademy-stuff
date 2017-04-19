@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Export a Codecademy Exercise to Plain Text - Codecademic Record</title>
+  <meta name="author" content="Alex Jahraus">
+
+  
+  <meta name="description" content="Export a Codecademy Exercise to Plain Text currently for JavaScript exercises only What’s this about? Some Codecademy educators (like myself)
+want &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://fanaugen.github.io/codecademy-stuff/code/export-exercise/README.html">
+  <link href="/codecademy-stuff/favicon.png" rel="icon">
+  <link href="/codecademy-stuff/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/codecademy-stuff/javascripts/modernizr-2.0.js"></script>
+  <script src="/codecademy-stuff/javascripts/ender.js"></script>
+  <script src="/codecademy-stuff/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/codecademy-stuff/atom.xml" rel="alternate" title="Codecademic Record" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/codecademy-stuff/">Codecademic Record</a></h1>
+  
+    <h2>(by-)products of my activity as a codecademic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/codecademy-stuff/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:fanaugen.github.io/codecademy-stuff" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/codecademy-stuff/index.html">About</a></li>
+  <li><a href="/codecademy-stuff/articles/index.html">Articles</a></li>
+  <li><a href="/codecademy-stuff/qa.html">FAQ</a></li>
+  <li><a href="/codecademy-stuff/code/index.html">Code</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">Export a Codecademy Exercise to Plain Text</h1>
+    
+  </header>
+  
+  <h3>currently for JavaScript exercises only</h3>
+
+<h3>What’s this about?</h3>
+
+<p>Some Codecademy educators (like <a href="http://www.codecademy.com/users/fanaugen">myself</a>)
+want to edit and backup their exercise code outside of the Codecademy editor:</p>
+
+<p><ul>
+<li>using a <em>real</em> text editor</li>
+<li>using <a href="http://git-scm.com/">git</a> for collaboration and version control</li>
+</ul></p>
+
+
+<p>So I created an <strong>export script</strong> to allow copying the entire 
+exercise description (with Hint and Solution) into a Markdown file.
+It'll also help you copy the JavaScript (including Correctness Test)
+to a JavaScript file.
+The script will show an overlay with two text areas to copy 
+the Markdown text and the JavaScript code from.</p>
+
+
+<p>
+Unfortunately there's no way of getting the content back <em>into</em> the exercise, so the re-import will involve up to 8 copy &amp;
+paste operations:
+</p>
+
+
+<p><ol>
+<li>Exercise title</li>
+<li>Educational text</li>
+<li>Exercise instructions</li>
+<li>Exercise hint</li>
+<li>JavaScript default code</li>
+<li>JavaScript SCT code</li>
+<li>Solution text</li>
+<li>Solution code</li>
+</ol></p>
+
+
+<h2>OK, so how do I use it?</h2>
+
+<p>Just add this bookmarklet to your Bookmarks (e.g. by dragging it to the Bookmarks Bar):</p>
+
+<p style="text-align:center; background-color:orange; padding:10px 0;">
+<a class="btn btn-mini" href='javascript:(function(){try{var u=location.href,a=CCDATA.creator.sectionData,d=a.index+1,i=a.exercises,s=u.split("/")[6],w=i.filter(function(e){return e._id===s})[0]}catch(m){return}var r=w.load_submission_from_previous_exercise,k=location.origin+w.preview_url,z=w.name,n=w.index+1,p=w.entry,g=w.instruction,q=w.hint,b=w.default_code,v=w.test_functions,h=w.solution_code,f=w.solution_entry,o=c="";try{var y="Section "+d+", Exercise "+n;o=[y+"\n# ["+z+"]("+u+") ([preview]("+k+"))","## Text",p,"## Instructions",g,"## Hint",q,"## Solution Text",f,"## Solution Code",h+"\n"].join("\n\n");c=["// "+y+"\n// "+z+"\n// edit:    "+u+"\n// preview: "+k,"// Load submission from previous exercise: "+r,"/*** Default Code    ***/",b,"/*** Submission Test ***/",v+"\n"].join("\n\n");var j=$("<textarea/>").css({overflow:"scroll",height:"100px",width:"98%"});$("#overlay").prepend($("<div/>").css({margin:"60px",width:"initial"}).append($("<h2/>").text(y)).append("<b>Exercise text (as Markdown)</b>").append(j.text(o)).append("<b>JavaScript code</b>").append(j.clone().text(c)).prepend("<a href=\"#\" class=\"close\">close  ×</a>").append("<p style=\"text-align:right;margin-top:10px;\"><a href=\"http://is.gd/EzJKpi\">documentation</a></p>")).show()}catch(m){console.log(m.message)}})();'>Export Code</a>
+</p>
+
+
+<p> It only works on a Codecademy exercise <strong> in edit view</strong>. Just open one of the exercises you are authoring and click the bookmarklet (tested with Google Chrome on a Mac). It should display something <a href="http://i.imgur.com/kj2Gabx.png">like this</a>.</p>
+
+
+<h2>Source &amp; Credits</h2>
+
+<p>The bookmarklet was inspired by the fantastic Correctness Test Viewer
+ bookmarklet written by <a href="http://twitter.com/minrice2099">Michael Tackes</a>.
+The source code is shown below.</p>
+
+
+
+
+<figure class='code'><figcaption><span>Export Exercise (export_exercise.js)</span> <a href='/codecademy-stuff/code/export-exercise/export_exercise.js'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="c1">// This bookmarklet will help you copy the entire</span>
+</span><span class='line'><span class="c1">// exercise instructions of a JS exercise to a Markdown file</span>
+</span><span class='line'><span class="c1">// and the entire code (default code plus submission test)</span>
+</span><span class='line'><span class="c1">// to a JS file.</span>
+</span><span class='line'><span class="c1">// You have to view the *Edit mode* of the exercise.</span>
+</span><span class='line'><span class="c1">// last updated: Feb 20, 2013 (uses overlay instead of alert())</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">try</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">l</span>  <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">sd</span>  <span class="o">=</span> <span class="nx">CCDATA</span><span class="p">.</span><span class="nx">creator</span><span class="p">.</span><span class="nx">sectionData</span><span class="p">,</span>
+</span><span class='line'>        <span class="nx">seno</span> <span class="o">=</span> <span class="nx">sd</span><span class="p">.</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>                <span class="c1">// section number</span>
+</span><span class='line'>        <span class="nx">ee</span> <span class="o">=</span> <span class="nx">sd</span><span class="p">.</span><span class="nx">exercises</span><span class="p">,</span>                  <span class="c1">// an Array</span>
+</span><span class='line'>        <span class="nx">id</span> <span class="o">=</span> <span class="nx">l</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="mi">6</span><span class="p">],</span>               <span class="c1">// exercise id</span>
+</span><span class='line'>        <span class="nx">e</span>  <span class="o">=</span> <span class="nx">ee</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">){</span>        <span class="c1">// exercise data object</span>
+</span><span class='line'>          <span class="k">return</span> <span class="nx">el</span><span class="p">.</span><span class="nx">_id</span> <span class="o">===</span> <span class="nx">id</span><span class="p">;</span>
+</span><span class='line'>        <span class="p">})[</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">prev</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">load_submission_from_previous_exercise</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">link</span> <span class="o">=</span> <span class="nx">location</span><span class="p">.</span><span class="nx">origin</span> <span class="o">+</span> <span class="nx">e</span><span class="p">.</span><span class="nx">preview_url</span><span class="p">,</span>    <span class="c1">// exercise preview link</span>
+</span><span class='line'>      <span class="nx">name</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>                             <span class="c1">// exercise title</span>
+</span><span class='line'>      <span class="nx">exno</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>                        <span class="c1">// exercise number</span>
+</span><span class='line'>      <span class="nx">text</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">entry</span><span class="p">,</span>                            <span class="c1">// educational text</span>
+</span><span class='line'>      <span class="nx">inst</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">instruction</span><span class="p">,</span>                      <span class="c1">// exercise instructions</span>
+</span><span class='line'>      <span class="nx">hint</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">hint</span><span class="p">,</span>                             <span class="c1">// exercise hint</span>
+</span><span class='line'>      <span class="nx">code</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">default_code</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">test</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">test_functions</span><span class="p">,</span>                   <span class="c1">// the SCT</span>
+</span><span class='line'>      <span class="nx">solc</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">solution_code</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">sole</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">solution_entry</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">t</span> <span class="o">=</span> <span class="nx">c</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>                                <span class="c1">// text and code</span>
+</span><span class='line'>  <span class="k">try</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">se</span> <span class="o">=</span> <span class="s1">&#39;Section &#39;</span><span class="o">+</span> <span class="nx">seno</span> <span class="o">+</span><span class="s1">&#39;, Exercise &#39;</span><span class="o">+</span><span class="nx">exno</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">t</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>      <span class="nx">se</span> <span class="o">+</span> <span class="s1">&#39;\n# [&#39;</span><span class="o">+</span><span class="nx">name</span><span class="o">+</span><span class="s1">&#39;](&#39;</span><span class="o">+</span><span class="nx">l</span><span class="o">+</span><span class="s1">&#39;) ([preview](&#39;</span><span class="o">+</span><span class="nx">link</span><span class="o">+</span><span class="s1">&#39;))&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;## Text&#39;</span><span class="p">,</span>         <span class="nx">text</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;## Instructions&#39;</span><span class="p">,</span> <span class="nx">inst</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;## Hint&#39;</span><span class="p">,</span>         <span class="nx">hint</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;## Solution Text&#39;</span><span class="p">,</span><span class="nx">sole</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;## Solution Code&#39;</span><span class="p">,</span><span class="nx">solc</span><span class="o">+</span><span class="s1">&#39;\n&#39;</span>
+</span><span class='line'>    <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n\n&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'>      <span class="s1">&#39;// &#39;</span> <span class="o">+</span> <span class="nx">se</span> <span class="o">+</span><span class="s1">&#39;\n// &#39;</span><span class="o">+</span> <span class="nx">name</span><span class="o">+</span><span class="s1">&#39;\n// edit:    &#39;</span> <span class="o">+</span> <span class="nx">l</span><span class="o">+</span>
+</span><span class='line'>      <span class="s1">&#39;\n// preview: &#39;</span><span class="o">+</span> <span class="nx">link</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;// Load submission from previous exercise: &#39;</span><span class="o">+</span><span class="nx">prev</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;/*** Default Code    ***/&#39;</span><span class="p">,</span> <span class="nx">code</span><span class="p">,</span>
+</span><span class='line'>      <span class="s1">&#39;/*** Submission Test ***/&#39;</span><span class="p">,</span> <span class="nx">test</span><span class="o">+</span><span class="s1">&#39;\n&#39;</span>
+</span><span class='line'>    <span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;\n\n&#39;</span><span class="p">);</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">$ta</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;textarea/&gt;&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span><span class="nx">overflow</span><span class="o">:</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span><span class="nx">height</span><span class="o">:</span><span class="s1">&#39;100px&#39;</span><span class="p">,</span><span class="nx">width</span><span class="o">:</span><span class="s1">&#39;98%&#39;</span><span class="p">});</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#overlay&#39;</span><span class="p">).</span><span class="nx">prepend</span><span class="p">(</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;div/&gt;&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">({</span><span class="nx">margin</span><span class="o">:</span><span class="s1">&#39;60px&#39;</span><span class="p">,</span><span class="nx">width</span><span class="o">:</span><span class="s1">&#39;initial&#39;</span><span class="p">})</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;h2/&gt;&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">se</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;b&gt;Exercise text (as Markdown)&lt;/b&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">$ta</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">t</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;b&gt;JavaScript code&lt;/b&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">$ta</span><span class="p">.</span><span class="nx">clone</span><span class="p">().</span><span class="nx">text</span><span class="p">(</span><span class="nx">c</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">prepend</span><span class="p">(</span><span class="s1">&#39;&lt;a href=\&#39;#\&#39; class=\&#39;close\&#39;&gt;close  ×&lt;/a&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;p style=\&#39;text-align:right;margin-top:10px;\&#39;&gt;&#39;</span>
+</span><span class='line'>        <span class="o">+</span><span class="s1">&#39;&lt;a href=\&#39;http://is.gd/EzJKpi\&#39;&gt;documentation&lt;/a&gt;&lt;/p&gt;&#39;</span>
+</span><span class='line'>      <span class="p">)</span>
+</span><span class='line'>    <span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+</span><span class='line'>  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">message</span><span class="p">);}</span>
+</span><span class='line'><span class="p">})();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+  
+    <footer>
+      
+      
+        <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://fanaugen.github.io/codecademy-stuff/code/export-exercise/README.html" data-via="fanaugen" data-counturl="http://fanaugen.github.io/codecademy-stuff/code/export-exercise/README.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/fanaugen">@fanaugen</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'fanaugen',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/codecademy-stuff/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("fanaugen", 3, false);
+    });
+  </script>
+  <script src="/codecademy-stuff/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/fanaugen" class="twitter-follow-button" data-show-count="">Follow @fanaugen</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Alex Jahraus |
+  <a href="https://github.com/fanaugen/codecademy-stuff/blob/master/octopress/source">source code</a> |
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codecademytools';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://fanaugen.github.io/codecademy-stuff/code/export-exercise/README.html';
+        var disqus_url = 'http://fanaugen.github.io/codecademy-stuff/code/export-exercise/README.html';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

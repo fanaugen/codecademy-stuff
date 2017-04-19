@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SCT Viewer - Codecademic Record</title>
+  <meta name="author" content="Alex Jahraus">
+
+  
+  <meta name="description" content="SCT Viewer This JavaScript bookmarklet is based on the Submission Correctness Viewer
+originally written by minrice (Michael Tackes), with valuable &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://fanaugen.github.io/codecademy-stuff/code/sct-viewer/README.html">
+  <link href="/codecademy-stuff/favicon.png" rel="icon">
+  <link href="/codecademy-stuff/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/codecademy-stuff/javascripts/modernizr-2.0.js"></script>
+  <script src="/codecademy-stuff/javascripts/ender.js"></script>
+  <script src="/codecademy-stuff/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/codecademy-stuff/atom.xml" rel="alternate" title="Codecademic Record" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/codecademy-stuff/">Codecademic Record</a></h1>
+  
+    <h2>(by-)products of my activity as a codecademic</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/codecademy-stuff/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:fanaugen.github.io/codecademy-stuff" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/codecademy-stuff/index.html">About</a></li>
+  <li><a href="/codecademy-stuff/articles/index.html">Articles</a></li>
+  <li><a href="/codecademy-stuff/qa.html">FAQ</a></li>
+  <li><a href="/codecademy-stuff/code/index.html">Code</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article role="article">
+  
+  <header>
+    <h1 class="entry-title">SCT Viewer</h1>
+    
+  </header>
+  
+  <p>This JavaScript bookmarklet is based on the Submission Correctness Viewer
+originally written by <a href="http://www.codecademy.com/users/minrice2099">minrice</a> (Michael Tackes), with valuable contributions
+by <a href="https://github.com/JoahG">Joah G.</a></p>
+
+<p>It uses Twitter Bootstrap’s <a href="http://bootstrapdocs.com/v3.2.0/docs/javascript/#modals">Modal</a> component (Codecademy already loads the CSS for that; the javascript part is loaded dynamically on first use).</p>
+
+<p>The bookmarklet only works on Codecademy <em>exercise pages</em> (like <a href="http://www.codecademy.com/courses/javascript-lesson-n1woS/1/1">this one</a>). To use it:</p>
+
+<ol>
+<li>Drag the link below to your Bookmarks Bar</li>
+<li><strong>(optional)</strong> edit the bookmarklet, replacing the URL with <a href="http://j.mp/sct-viewer2">this code</a></li>
+<li>Visit a Codecademy exercise page and click the bookmarklet</li>
+</ol>
+
+
+<p><div style="text-align:center;border:4px dashed orange;border-radius:10px;vertical-align:middle;padding:1em;font-size:1.7em;">
+    <span><a title="Drag me to your Bookmarks" href="javascript:(function(){try{var c=CCDATA.composer,pi= +location.pathname.match(/(\d+)\/\d+$/)[1],ci=c.current_checkpoint_index,p=c.course.projects[pi],a=p.author.handle,l=c.course.language.toLowerCase(),t=p.checkpoints[ci].test_functions;if($.fn.modal){sm()}else{$.getScript('//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/modal.min.js').done(sm).fail(function(r,s,e){throw e})}}catch(e){return console.log(e.message)}function sm(){var $m=$('#sct');if($m.length==0){$m=$('<div id=\'sct\' class=\'modal fade hide\' style=\'width:700px\'>').append($('<div class=\'modal-header\'>').append($('<button type=\'button\' class=\'close\' data-dismiss=\'modal\'>').text('×')).append('<h3>Correctness Test <small> &nbsp; by '+a+'</small></h3>')).append('<div class=\'modal-body\'><pre><code></code></pre></div>').append($('<div class=\'modal-footer\'>').append('<a target=\'blank\' href=\'//j.mp/17nuoIp\'>Feedback</a> &nbsp;').append($('<button class=\'btn btn-small\' data-dismiss=\'modal\'>').text('Close'))).appendTo($('body'))}t=t.replace(/&amp;/g,'&amp;').replace(/&lt;/g,'&lt;').replace(/>/g,'&gt;');var $code=$m.find('code').eq(0).attr('class','language-'+(l=='web'?'javascript':l)).html(t);hljs&amp;&amp;hljs.highlightBlock($code.get(0));$m.modal('show')}})();">Cheat</a></span>
+</div></p>
+
+<p><strong>There may be bugs</strong> and I haven’t tested it on any browser other than the latest Chrome for Mac. So if you find any errors, do let me know.</p>
+
+<h2>Source</h2>
+
+<p><figure class='code'><figcaption><span>SCT Viewer (sct-viewer.js)</span> <a href='/codecademy-stuff/code/sct-viewer/sct-viewer.js'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="cm">/<em></span>
+</span><span class='line'><span class="cm">Display SCT (Submission Correctness Test) of a Codecademy Exercise.</span>
+</span><span class='line'><span class="cm">By Alex Jahraus (based on the original SCT Viewer Bookmarklet by Michael Tackes)</span>
+</span><span class='line'><span class="cm">Works only in Codecademy’s New UI, see</span>
+</span><span class='line'><span class="cm">http://www.codecademy.com/blog/62-introducing-a-new-learning-experience</span>
+</span><span class='line'><span class="cm">Dependencies:</span>
+</span><span class='line'><span class="cm">  - jQuery, Twitter Bootstrap’s CSS for modals and highlight.js (loaded by Codecademy)</span>
+</span><span class='line'><span class="cm">  - bootstrap-modal.js (loaded dynamically)</span>
+</span><span class='line'><span class="cm">How To Use: the minified code can be used in a bookmarklet to execute</span>
+</span><span class='line'><span class="cm">the script on the page of the exercise you’re currently viewing.</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">Version: 0.3</span>
+</span><span class='line'><span class="cm">Last updated: 19. April 2017 to match Codecademy’s new UI</span>
+</span><span class='line'><span class="cm"></em>/</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">try</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// step 1: get the SCT code and author name</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">c</span>  <span class="o">=</span> <span class="nx">CCDATA</span><span class="p">.</span><span class="nx">composer</span><span class="p">,</span>
+</span><span class='line'>      <span class="nx">pi</span> <span class="o">=</span> <span class="o">+</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/(\d+)\/\d+$/</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span>    <span class="c1">// pi for project index</span>
+</span><span class='line'>      <span class="nx">ci</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">current_checkpoint_index</span><span class="p">,</span>                    <span class="c1">// ci for checkpoint index</span>
+</span><span class='line'>      <span class="nx">p</span>  <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">course</span><span class="p">.</span><span class="nx">projects</span><span class="p">[</span><span class="nx">pi</span><span class="p">],</span>                         <span class="c1">// p is the project</span>
+</span><span class='line'>      <span class="nx">a</span>  <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">author</span><span class="p">.</span><span class="nx">handle</span><span class="p">,</span>                               <span class="c1">// a for author</span>
+</span><span class='line'>      <span class="nx">l</span>  <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">course</span><span class="p">.</span><span class="nx">language</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">(),</span>               <span class="c1">// l for language (syntax highlighting)</span>
+</span><span class='line'>      <span class="nx">t</span>  <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">checkpoints</span><span class="p">[</span><span class="nx">ci</span><span class="p">].</span><span class="nx">test_functions</span><span class="p">;</span>              <span class="c1">// t is the test code</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// step 2: load bootstrap-modal.js</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">modal</span><span class="p">)</span> <span class="nx">sm</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">else</span> <span class="nx">$</span><span class="p">.</span><span class="nx">getScript</span><span class="p">(</span><span class="s1">&#39;//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/modal.min.js&#39;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">done</span><span class="p">(</span><span class="nx">sm</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">fail</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">s</span><span class="p">,</span><span class="nx">e</span><span class="p">){</span><span class="k">throw</span> <span class="nx">e</span><span class="p">})</span>
+</span><span class='line'><span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kd">function</span> <span class="nx">sm</span><span class="p">(){</span>
+</span><span class='line'>  <span class="c1">// step 3: compose the modal div</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">$m</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#sct&#39;</span><span class="p">);</span> <span class="c1">// the modal</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="nx">$m</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// modal is not yet in the document</span>
+</span><span class='line'>    <span class="nx">$m</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;div id=&amp;#39;sct&amp;#39; class=&amp;#39;modal fade hide&amp;#39; style=&amp;#39;width:700px&amp;#39;&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;div class=&amp;#39;modal-header&amp;#39;&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;button type=&amp;#39;button&amp;#39; class=&amp;#39;close&amp;#39; data-dismiss=&amp;#39;modal&amp;#39;&gt;&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;×&#39;</span><span class="p">))</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;h3&gt;Correctness Test &lt;small&gt; &amp;nbsp; by &#39;</span><span class="o">+</span><span class="nx">a</span><span class="o">+</span><span class="s1">&#39;&lt;/small&gt;&lt;/h3&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;div class=&amp;#39;modal-body&amp;#39;&gt;&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;div class=&amp;#39;modal-footer&amp;#39;&gt;&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">&#39;&lt;a target=&amp;#39;blank&amp;#39; href=&amp;#39;//j.mp/17nuoIp&amp;#39;&gt;Feedback&lt;/a&gt; &amp;nbsp;&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;button class=&amp;#39;btn btn-small&amp;#39; data-dismiss=&amp;#39;modal&amp;#39;&gt;&#39;</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Close&#39;</span><span class="p">))</span>
+</span><span class='line'>    <span class="p">).</span><span class="nx">appendTo</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">));</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// step 4: sanitize, insert, and highlight the code (currently not visible)</span>
+</span><span class='line'>  <span class="nx">t</span> <span class="o">=</span> <span class="nx">t</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&amp;/g</span><span class="p">,</span><span class="s1">&#39;&amp;amp;&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;/g</span><span class="p">,</span><span class="s1">&#39;&amp;lt;&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&gt;/g</span><span class="p">,</span><span class="s1">&#39;&amp;gt;&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="kd">var</span> <span class="nx">$code</span> <span class="o">=</span> <span class="nx">$m</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">,</span><span class="s1">&#39;language-&#39;</span><span class="o">+</span> <span class="p">(</span><span class="nx">l</span> <span class="o">==</span> <span class="s1">&#39;web&#39;</span> <span class="o">?</span> <span class="s1">&#39;javascript&#39;</span> <span class="o">:</span> <span class="nx">l</span><span class="p">))</span>
+</span><span class='line'>    <span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="nx">t</span><span class="p">)</span>
+</span><span class='line'>  <span class="nx">hljs</span> <span class="o">&amp;&amp;</span> <span class="nx">hljs</span><span class="p">.</span><span class="nx">highlightBlock</span><span class="p">(</span><span class="nx">$code</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">// step 5: show the modal</span>
+</span><span class='line'>  <span class="nx">$m</span><span class="p">.</span><span class="nx">modal</span><span class="p">(</span><span class="s1">&#39;show&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="p">})();</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Now go try it out!</p>
+
+  
+    <footer>
+      
+      
+        <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://fanaugen.github.io/codecademy-stuff/code/sct-viewer/README.html" data-via="fanaugen" data-counturl="http://fanaugen.github.io/codecademy-stuff/code/sct-viewer/README.html" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+      
+    </footer>
+  
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/fanaugen">@fanaugen</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'fanaugen',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/codecademy-stuff/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("fanaugen", 3, false);
+    });
+  </script>
+  <script src="/codecademy-stuff/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/fanaugen" class="twitter-follow-button" data-show-count="">Follow @fanaugen</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - Alex Jahraus |
+  <a href="https://github.com/fanaugen/codecademy-stuff/blob/master/octopress/source">source code</a> |
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>. Design by <a href="http://octopressthemes.com">Octopress Themes</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'codecademytools';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://fanaugen.github.io/codecademy-stuff/code/sct-viewer/README.html';
+        var disqus_url = 'http://fanaugen.github.io/codecademy-stuff/code/sct-viewer/README.html';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
