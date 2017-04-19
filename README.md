@@ -1,11 +1,16 @@
-Codecademy Stuff
-================
+Codecademic Record
+==================
+[Octopress page][ghp] to publish my Codecademy writings and code snippets
 
-**See the [GitHub Pages][ghp]**
+### updating
+Make edits in `octopress/source`, then
 
-This repository is used to collect and [publish][ghp] some of the content I
-created or co-authored on and for [Codecademy](http://www.codecademy.com). I am
-not associated with or endorsed by Codecademy (Ryzac, Inc.), I’m just a regular
-user.
+```
+cd octopress
+bundle
+rake generate
+rake preview
+rake deploy
+```
 
 [ghp]: http://fanaugen.github.io/codecademy-stuff
