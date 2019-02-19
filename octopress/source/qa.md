@@ -91,12 +91,14 @@ footer: true
 
 - [Ruby Symbol-to-Proc conversion](http://www.codecademy.com/forum_questions/510f1e971ceaf3de2e002348)
 
+- [Understanding `yield`](http://www.codecademy.com/forum_questions/51c72e759c4e9d410501df42#response-51c75f68631fe903b4001e5d)
+
 - [Ruby `'`single-quoted`'` vs. `"`double-quoted`"` strings](http://www.codecademy.com/forum_questions/514b78373d1166aa0d000051#response-514c30e0eafed913280015c6)
 
 - Sorting with a block: answered in detail [here][9] and [here][10]
 
 [9]: http://www.codecademy.com/forum_questions/51460322cedb4b1444006c54#response-51461350bde24d1bb00070b4
-[10]: http://www.codecademy.com/forum_questions/5149e1bbcbe835068200336d#response-5149ad20252e31d4950022b9
+[10]: http://www.codecademy.com/forum_questions/514800a3012400221a0018a6#response-5149ad20252e31d4950022b9
 
 - [Value Assignment and `x += 1`](http://www.codecademy.com/forum_questions/514788af008571acea000271) – *with pictures!*. This answer isn’t Ruby-specific. It applies to pretty much every programming language.
 
@@ -105,6 +107,8 @@ footer: true
 - [`downto` doesn’t work with Strings](http://www.codecademy.com/forum_questions/514c5d99fe6e1714b8001d9a)
 
 - [Conditional Assignment: `x||=y` is a shorthand for `x=x||y`](http://www.codecademy.com/forum_questions/5149680470d288f3540016f6#response-5149c7c787058869e2002a48)
+
+- [`return` in Proc and lambda](http://www.codecademy.com/forum_questions/51c8eb25282ae38108005a51#response-51c94f837c82ca187300b0f1)
 
 
 ## Python
